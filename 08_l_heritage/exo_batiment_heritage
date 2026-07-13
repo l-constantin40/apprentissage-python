@@ -1,0 +1,67 @@
+"""
+Ce script permet de créer différents bâtiments d'une ville
+en évitant de se répéter dans le code grâce au principe d'héritage.
+"""
+
+# 1. CRÉATION DES CLASSES
+
+# Classe mère : contient les caractéristiques communes à tous les bâtiments
+class Batiment:
+    def __init__(self, address, floor):
+        self.address = address
+        self.floor = floor
+        return
+    
+# Spécialisation : un immeuble possède des balcons en plus
+class Immeuble(Batiment):
+    def __init__(self, address, floor, number_of_balconies):
+        super().__init__(address, floor)
+        self.number_of_balconies = number_of_balconies
+        return
+
+
+# Spécialisation : un supermarché possède des rayons en plus
+class Supermarkets(Batiment):
+    def __init__(self, address, floor, number_of_spokes):
+        super().__init__(address, floor)
+        self.number_of_spokes = number_of_spokes
+        return
+
+
+# Spécialisation : une banque possède des coffres-forts en plus
+class Banque(Batiment):
+    def __init__(self, address, floor, number_of_safes):
+        super().__init__(address, floor)
+        self.number_of_safes = number_of_safes
+        return
+
+
+# 2. CRÉATION DE LA VILLE
+
+# Les 4 immeubles résidentiels
+immeuble_1 = Immeuble("Rue_Napoléon", 3, 6)
+print(f"L'immeuble est au {immeuble_1.address}, il a {immeuble_1.floor} étages et {immeuble_1.number_of_balconies} balcons.")
+
+immeuble_2 = Immeuble("Rue_Henry", 3, 4)
+print(f"L'immeuble est au {immeuble_2.address}, il a {immeuble_2.floor} étages et {immeuble_2.number_of_balconies} balcons.")
+
+immeuble_3 = Immeuble("Rue_de_scapula", 5, 9)
+print(f"L'immeuble est au {immeuble_3.address}, il a {immeuble_3.floor} étages et {immeuble_3.number_of_balconies} balcons.")
+
+immeuble_4 = Immeuble("Rue_de_la_bouteille", 2, 7)
+print(f"L'immeuble est au {immeuble_4.address}, il a {immeuble_4.floor} étages et {immeuble_4.number_of_balconies} balcons.")
+
+
+# Les 2 supermarchés 
+supermarkets_1 = Supermarkets("Rue_de_la_maison", 4, 15)
+print(f"Le supermarché est au {supermarkets_1.address}, il y a {supermarkets_1.floor} étages et {supermarkets_1.number_of_spokes} rayons.")
+
+supermarkets_2 = Supermarkets("Rue_de_la_division", 8, 60)
+print(f"Le supermarché est au {supermarkets_2.address}, il y a {supermarkets_2.floor} étages et {supermarkets_2.number_of_spokes} rayons.")
+
+
+# La banque centrale
+banque_1 = Banque("Rue_de_l'oiseau", 3, 50)
+print(f"La banque est au {banque_1.address}, il y a {banque_1.floor} étages et {banque_1.number_of_safes} coffres.")
+
+
